@@ -13,6 +13,5 @@ class config:
 
 if __name__ == "__main__":
     conf = config()
-    a = conf.get('KUAS_Default','account')
-    print(a)
-    print(type(a))
+    #a = conf.get('KUAS_Default','account')
+    print(conf.get('Telegram','api'))

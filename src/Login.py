@@ -15,17 +15,8 @@ class Core():
         self.degug = 1
         self.log_ = 0
         #
-
         #Check Config_file and load config
         conf = Config.config(config_file)
-        if conf.get('KUAS_Default','account') != False and conf.get('KUAS_Default','account') != "":
-            self.Account = conf.get('KUAS_Default','account')
-        else:
-            self.log("設定檔(Config.cfg) 帳號格出錯或是標籤出錯")
-        if conf.get('KUAS_Default','password') != False and conf.get('KUAS_Default','password') != "":
-            self.Password = conf.get('KUAS_Default','password')    
-        else:
-            self.log("設定檔(Config.cfg) 密碼格出錯或是密碼出錯")
         if conf.get('Debug','debug_mode') != False and conf.get('Debug','debug_mode') != '1':
             self.degug = 0
         if conf.get('Debug','log') != False and conf.get('Debug','log') != '0':
@@ -64,12 +55,12 @@ class Core():
             self.log('Maybe KUAS server is down QQ \nwait for min...and try again!')
             return False
         return True
-    def Login_check(self):
+    def Login_check(self,Account,Password):
         try:
-            return bus.login(self.Session,self.Account,self.Password)
-        except:
+            return bus.login(self.Session,Account,Password)
+        except Exception as e:
             self.log("Login Error KUASID:%s"%self.Account)
-            return False
+        return False
     def all_check(self):
         #check server status and KUAS Login
         if self.server_check() == False:
@@ -120,23 +111,27 @@ class Core():
         diff= datetime.date.today() - datetime.date(year,mouth,day)
         #if 2 weeks (14 days) difference, will return False
         if diff.days > 14:
-            self.log("search >14 days I can't search QQ")
+            #self.log("search >14 days I can't search QQ")
             return False
         res = bus.query(self.Session,year,mouth,day,first)
         #print(res)    
+        res_text = "%s/%s\n"%(str(mouth),str(day))
         for i in res:
-            text = 'Bus ID:%s 發車時間:%s 前往:%s 已預約人數:%s'%(i['busId'],i['Time'],i['endStation'],i['reserveCount'])
-            self.log(text)
-        return True
-
+            #text = 'Bus ID:%s 時間:%s 前往:%s '%(i['busId'],i['Time'],i['endStation'])
+            res_text += 'Bus ID:%s 時間:%s 前往:%s \n'%(i['busId'],i['Time'],i['endStation'])
+            #self.log(text)
+        return res_text
     def unbook(self,cancelKey):
-        res = bus.book(self.Session,cancelKey,"un") 
+        res = bus.book(self.Session,int(cancelKey),"un") 
         self.log(res['message'])
+        return res['message']
+        
     def book(self,busID):
         res = bus.book(self.Session,busID) 
         self.log(res['message'])
-    
-if __name__ == "__main__":
+        return res['message']
+
+if __name__ == "__kmain__":
     #core.get_reserve_bus()
     #core.search(2018,9,12,'建工')
     #core.search(2018,9,11,'燕巢')
