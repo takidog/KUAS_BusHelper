@@ -1,6 +1,6 @@
 # KUAS_BusHelper
 
-[t.me/KUAS_BusHelper_bot](tg://resolve?domain=KUAS_BusHelper_bot)
+[t.me/KUAS_BusHelper_bot](t.me/KUAS_BusHelper_bot)
 
 
 
@@ -32,19 +32,19 @@
 
 查詢已預約車次
 
-
+![](https://i.imgur.com/qEVi49Z.gif)
 
 查詢車次
 
-
+![](https://imgur.com/Fd5q0hw.gif)
 
 預約乘車
 
-
+![](https://imgur.com/PeF3aBq.gif)
 
 取消預約
 
-
+![](https://imgur.com/khRM89t.gif)
 
 ## 自行架設
 
