@@ -208,7 +208,11 @@ def received_information(bot, update, user_data): # here save data
         return CHOOSING
     elif user_data.get('輸入NKUST帳號') != None and user_data.get('輸入NKUST密碼') != None:
         update.message.reply_text("準備登入測試><")
-        
+        # SQL injection
+        if re.match(r'^([A-Za-z0-9]\w{3,13})$',(user_data.get('輸入NKUST密碼')) == None or re.match(r'^(\d{6,13})$',(user_data.get('輸入NKUST帳號')):
+            update.message.reply_text("輸入的東西好像怪怪的哦，全!部!重!來!\n /start 重來吧!")
+            user_data.clear()
+            return ConversationHandler.END                                                                           
         #here Login Check 
         bus = Login.Core()
         res = bus.Login_check(user_data.get('輸入NKUST帳號'),user_data.get('輸入NKUST密碼'))
