@@ -32,19 +32,19 @@
 
 查詢已預約車次
 
-![](https://i.imgur.com/qEVi49Z.gif)
+![](https://raw.githubusercontent.com/takidog/img_library/master/KUAS_BusHelprt/1.gif)
 
 查詢車次
 
-![](https://imgur.com/Fd5q0hw.gif)
+![](https://raw.githubusercontent.com/takidog/img_library/master/KUAS_BusHelprt/2.gif)
 
 預約乘車
 
-![](https://imgur.com/PeF3aBq.gif)
+![](https://raw.githubusercontent.com/takidog/img_library/master/KUAS_BusHelprt/3.gif)
 
 取消預約
 
-![](https://imgur.com/khRM89t.gif)
+![](https://raw.githubusercontent.com/takidog/img_library/master/KUAS_BusHelprt/4.gif)
 
 ## 自行架設
 
@@ -76,16 +76,25 @@
 
 
 
-2018.09.07 剛開始編寫，還有多處肉眼可見bug
+2018.09.07 
+
+剛開始編寫，還有多處肉眼可見bug
 
 先製作出一個簡單的手動預約，以方便後續改建置telegram bot上
 
 
 
-2018.09.15 經過一個禮拜的搭乘，目前還沒遇見什麼會導致bug的現實問題!?
+2018.09.15 
+
+經過一個禮拜的搭乘，目前還沒遇見什麼會導致bug的現實問題!?
 
 移植到telegram bot上，完成 **查詢預約車次**/**查詢車次**/**預約乘車**/**取消預約** 主要功能
 
+2018.09.17 
+
+修正SQL injection 。
+
+更新README.md  demo image URL
 
 
 <br>
