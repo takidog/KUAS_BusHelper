@@ -22,7 +22,7 @@ from telegram import ReplyKeyboardRemove
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler,
                           ConversationHandler)
 import logging
-
+from time import mktime
 import Login
 import Sqlite_func
 import time,datetime
@@ -133,7 +133,9 @@ def regular_choice(bot, update, user_data):
                     c = '建工>>燕巢'
 
                 text = "時間: %s方向:%s"%(time.strftime('%m-%d %H:%M',time.strptime(i['time'],"%Y-%m-%d %H:%M")),c)
-                update.message.reply_text(text,reply_markup=order_markup)
+                #anti KUAS_server return past time
+                if (datetime.datetime.now()-datetime.datetime.fromtimestamp(mktime(time.strptime(i[time],"%Y-%m-%d")))).days == 0:
+                    update.message.reply_text(text,reply_markup=order_markup)
         return TYPING_CHOICE
     
     elif text == "查詢車次":
