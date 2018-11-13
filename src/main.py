@@ -134,8 +134,8 @@ def regular_choice(bot, update, user_data):
 
                 text = "時間: %s方向:%s"%(time.strftime('%m-%d %H:%M',time.strptime(i['time'],"%Y-%m-%d %H:%M")),c)
                 #anti KUAS_server return past time
-                if (datetime.datetime.now()-datetime.datetime.fromtimestamp(mktime(time.strptime(i[time],"%Y-%m-%d")))).days == 0:
-                    update.message.reply_text(text,reply_markup=order_markup)
+                #if (datetime.datetime.now()-datetime.datetime.fromtimestamp(mktime(time.strptime(i[time],"%Y-%m-%d")))).days == 0:
+                update.message.reply_text(text,reply_markup=order_markup)
         return TYPING_CHOICE
     
     elif text == "查詢車次":

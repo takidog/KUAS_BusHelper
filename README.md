@@ -1,6 +1,6 @@
 # KUAS_BusHelper
 
-[t.me/KUAS_BusHelper_bot](t.me/KUAS_BusHelper_bot)
+[t.me/KUAS_BusHelper_bot](t.me/KUAS_BusHelper_bot)(2018.11.13 關閉服務)
 
 
 
@@ -73,6 +73,12 @@
 ## 目前狀態
 
 經過詢問[NKUST-ITC/AP-API](https://github.com/NKUST-ITC/AP-API) 採用MIT授權之後開始製作:P
+
+2018.11.13
+
+關閉服務QQ
+
+修正上一版的時間計算錯誤
 
 
 
